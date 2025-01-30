@@ -14,6 +14,7 @@
         body {
             font-family: 'Quicksand', sans-serif;
         }
+      
     </style>
     <script src="https://js.paystack.co/v1/inline.js"></script>
     <script>
@@ -58,13 +59,13 @@
     </script>
 </head>
 
-<body>
+<body class="bg-black">
     <div class="container text-center py-5">
-        <h1 class="py-2">Welcome to mmNet</h1>
-        <p>Choose a package to get started:</p>
+        <h1 class="py-2 text-warning">Welcome to mmNet</h1>
+        <p class="text-warning">Choose a package to get started:</p>
         <div class="row g-4 justify-content-center">
             <div class="col-md-4">
-                <div class="card shadow border-0" onclick="payNow(30, this)">
+                <div class="card shadow-sm border-0 border-start border-primary" onclick="payNow(30, this)">
                     <div class="card-body py-5">
                         <h4 class="mb-2">6Hrs @ 30KES</h1>
                         <p class="card-text fs-5 fw-light">Fast Speeds & no buffers</p>
@@ -72,7 +73,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card shadow border-0" onclick="payNow(50, this)">
+                <div class="card shadow-sm border-0 border-start border-light bg-warning bg-gradient" onclick="payNow(50, this)">
                     <div class="card-body py-5">
                         <h4 class="mb-2">12Hrs @ 50KES</h1>
                         <p class="card-text fs-5 fw-light">Double the time, same fast speeds</p>
@@ -80,7 +81,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card shadow border-0" onclick="payNow(80, this)">
+                <div class="card shadow-sm border-0 border-start border-info bg-info bg-gradient" onclick="payNow(80, this)">
                     <div class="card-body py-5">
                         <h4 class="mb-2">24Hrs @ 80KES</h1>
                         <p class="card-text fs-5 fw-light">Unlimited access for the whole day</p>
