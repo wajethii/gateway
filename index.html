@@ -59,36 +59,61 @@
     </script>
 </head>
 
-<body class="bg-dark">
+<body>
     <div class="container text-center py-5">
         <h1 class="py-2 text-warning">Welcome to mmNet</h1>
         <p class="text-warning">Choose a package to get started:</p>
         <div class="row g-4 justify-content-center">
             <div class="col-md-4">
-                <div class="card shadow-sm border-0 border-start border-primary" onclick="payNow(30, this)">
-                    <div class="card-body py-5">
-                        <h4 class="mb-2">6Hrs @ 30KES</h1>
+                <div class="card shadow border-0 border-start border-danger" onclick="payNow(20, this)" aria-label="6 hours access at 20 KES">
+                    <div class="card-body py-5 text-center">
+                        <h4 class="mb-2 fw-bold">6Hrs @ 20KES</h4>
                         <p class="card-text fs-5 fw-light">Fast Speeds & no buffers</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card shadow-sm border-0 border-start border-light bg-warning bg-gradient" onclick="payNow(50, this)">
-                    <div class="card-body py-5">
-                        <h4 class="mb-2">12Hrs @ 50KES</h1>
+                <div class="card shadow border-0 border-start border-dark" onclick="payNow(30, this)" aria-label="12 hours access at 30 KES">
+                    <div class="card-body py-5 text-center">
+                        <h4 class="mb-2 fw-bold">12Hrs @ 30KES</h4>
                         <p class="card-text fs-5 fw-light">Double the time, same fast speeds</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card shadow-sm border-0 border-start border-info bg-info bg-gradient" onclick="payNow(80, this)">
-                    <div class="card-body py-5">
-                        <h4 class="mb-2">24Hrs @ 80KES</h1>
-                        <p class="card-text fs-5 fw-light">Unlimited access for the whole day</p>
+                <div class="card shadow border-0 border-start border-success" onclick="payNow(200, this)" aria-label="1 week access at 200 KES">
+                    <div class="card-body py-5 text-center">
+                        <h4 class="mb-2 fw-bold">1 Week @ 200KES</h4>
+                        <p class="card-text fs-5 fw-light">Unlimited access for a whole week</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow border-0 border-start border-primary" onclick="payNow(400, this)" aria-label="2 weeks access at 400 KES">
+                    <div class="card-body py-5 text-center">
+                        <h4 class="mb-2 fw-bold">2 Weeks @ 400KES</h4>
+                        <p class="card-text fs-5 fw-light">Fast Speeds & no buffers</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow border-0 border-start border-info" onclick="payNow(600, this)" aria-label="3 weeks access at 600 KES">
+                    <div class="card-body py-5 text-center">
+                        <h4 class="mb-2 fw-bold">3 Weeks @ 600KES</h4>
+                        <p class="card-text fs-5 fw-light">Double the time, same fast speeds</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow border-0 border-start border-warning" onclick="payNow(800, this)" aria-label="1 month access at 800 KES">
+                    <div class="card-body py-5 text-center">
+                        <h4 class="mb-2 fw-bold">1 Month @ 800KES</h4>
+                        <p class="card-text fs-5 fw-light">Unlimited access for the whole month</p>
                     </div>
                 </div>
             </div>
         </div>
+        
     </div>
 </body>
 
