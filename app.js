@@ -36,3 +36,8 @@ function verifyPayment(reference) {
         })
         .catch(err => alert("Error verifying payment: " + err));
 }
+
+// Dynamically set the current year
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+});
