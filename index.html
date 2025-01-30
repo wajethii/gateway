@@ -9,138 +9,103 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet">
     <style>
         body {
             font-family: 'Quicksand', sans-serif;
         }
-     
-p, h4{
-    color: #ffc107;
-}
 
-.package-card {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    color: white;
-    overflow: hidden;
-}
+        p,
+        h4 {
+            color: #ffc107;
+        }
 
-.package-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
-}
+        .package-card {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            overflow: hidden;
+        }
 
-.package-6hrs {
-    background-image: url('6hours.webp');
-}
+        .package-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            /* Dark overlay */
+        }
 
-.package-12hrs {
-    background-image: url('12hrs.webp');
-}
+        .package-6hrs {
+            background-image: url('6hours.webp');
+        }
 
-.package-1week {
-    background-image: url('12hours.webp');
-}
+        .package-12hrs {
+            background-image: url('12hrs.webp');
+        }
 
-.package-2weeks {
-    background-image: url('2weeks.webp');
-}
+        .package-1week {
+            background-image: url('12hours.webp');
+        }
 
-.package-3weeks {
-    background-image: url('3weeks.webp');
-}
+        .package-2weeks {
+            background-image: url('2weeks.webp');
+        }
 
-.package-1month {
-    background-image: url('1month.webp');
-}
-/* Ensure text is above the overlay */
-.card-body {
-    position: relative;
-    z-index: 2;
-}
+        .package-3weeks {
+            background-image: url('3weeks.webp');
+        }
 
+        .package-1month {
+            background-image: url('1month.webp');
+        }
 
+        /* Ensure text is above the overlay */
+        .card-body {
+            position: relative;
+            z-index: 2;
+        }
     </style>
     <script src="https://js.paystack.co/v1/inline.js"></script>
-    <script>
-        async function payNow(amount, cardElement) {
-            const email = prompt("Enter your email address:");
-            if (!email) return alert("Payment canceled.");
-
-            const handler = PaystackPop.setup({
-                key: 'pk_live_ddf8b229efa8b8d52e6bc93e8deb17bb1984015b', // Replace with your Paystack public key
-                email: email,
-                amount: amount * 100, // Paystack works with kobo (100 kobo = 1 KES)
-                currency: 'KES', // Kenyan Shillings
-                callback: function(response) {
-                    alert("Payment successful. Reference: " + response.reference);
-                    // Send the reference to your backend for verification
-                    verifyPayment(response.reference);
-                },
-                onClose: function() {
-                    alert("Payment process closed.");
-                }
-            });
-
-            handler.openIframe();
-        }
-
-        function verifyPayment(reference) {
-            fetch('/verify-payment', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ reference })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'success') {
-                    alert("Payment verified!");
-                } else {
-                    alert("Payment verification failed.");
-                }
-            })
-            .catch(err => alert("Error verifying payment: " + err));
-        }
-    </script>
+    
 </head>
 
 <body>
-    <div class="container py-5 min-vh-100">
+    <div class="container py-2 min-vh-100">
         <h1 class="py-2 text-black">Welcome to mmNet</h1>
-<p class="text-black fs-4">Choose a package to get started:</p>
-
-<!-- Purchase Instructions -->
-<div class="purchase-instructions bg-light p-3 rounded shadow-sm mb-4">
-    <h4 class="text-black">How to Purchase</h4>
-    <ul class="text-dark">
-        <li>Click on your preferred Wi-Fi package.</li>
-        <li>You will be redirected to the payment page.</li>
-        <li>Enter your details and complete the payment.</li>
-        <li>Once payment is confirmed, you will receive your access code.</li>
-        <li>Use the access code to connect to mmNet.</li>
-    </ul>
-    <p class="fw-bold text-black">Need help? Call our customer care: <span class="text-danger">+254 717 340 777</span></p>
-</div>
+        <!-- Purchase Instructions -->
+        <div class="purchase-instructions bg-black p-3 rounded shadow-sm mb-4">
+            <h4 class="text-white">How to Purchase</h4>
+            <ul class="text-white">
+                <li>Click on your preferred Wi-Fi package.</li>
+                <li>You will be redirected to the payment page.</li>
+                <li>Enter your details and complete the payment.</li>
+                <li>Once payment is confirmed, you will receive your access code.</li>
+                <li>Use the access code to connect to mmNet.</li>
+            </ul>
+            <p class="text-white">Need help? Call our customer care: <span class="text-warning">+254 717 340
+                    777</span></p>
+        </div>
 
         <div class="row g-4 justify-content-center">
             <div class="col-md-4">
-                <div class="card package-card package-6hrs shadow border-0 border-start border-danger" onclick="payNow(20, this)">
+                <div class="card package-card package-6hrs shadow border-0 border-start border-danger"
+                    onclick="payNow(20, this)">
                     <div class="card-body py-5 text-center">
                         <h4 class="mb-2 fw-bold">6Hrs @ 20KES</h4>
                         <p class="card-text fs-5 fw-light">Fast Speeds & no buffers</p>
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-md-4">
-                <div class="card package-card package-12hrs shadow border-0 border-start border-dark" onclick="payNow(30, this)" aria-label="12 hours access at 30 KES">
+                <div class="card package-card package-12hrs shadow border-0 border-start border-dark"
+                    onclick="payNow(30, this)" aria-label="12 hours access at 30 KES">
                     <div class="card-body py-5 text-center">
                         <h4 class="mb-2 fw-bold">12Hrs @ 30KES</h4>
                         <p class="card-text fs-5 fw-light">Double the time, same fast speeds</p>
@@ -148,7 +113,8 @@ p, h4{
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card shadow package-card package-1week border-0 border-start border-success" onclick="payNow(200, this)" aria-label="1 week access at 200 KES">
+                <div class="card shadow package-card package-1week border-0 border-start border-success"
+                    onclick="payNow(200, this)" aria-label="1 week access at 200 KES">
                     <div class="card-body py-5 text-center">
                         <h4 class="mb-2 fw-bold">1 Week @ 200KES</h4>
                         <p class="card-text fs-5 fw-light">Unlimited access for a whole week</p>
@@ -156,7 +122,8 @@ p, h4{
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card shadow package-card package-2weeks border-0 border-start border-primary" onclick="payNow(400, this)" aria-label="2 weeks access at 400 KES">
+                <div class="card shadow package-card package-2weeks border-0 border-start border-primary"
+                    onclick="payNow(400, this)" aria-label="2 weeks access at 400 KES">
                     <div class="card-body py-5 text-center">
                         <h4 class="mb-2 fw-bold">2 Weeks @ 400KES</h4>
                         <p class="card-text fs-5 fw-light">Fast Speeds & no buffers</p>
@@ -164,7 +131,8 @@ p, h4{
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card shadow package-card package-3weeks border-0 border-start border-info" onclick="payNow(600, this)" aria-label="3 weeks access at 600 KES">
+                <div class="card shadow package-card package-3weeks border-0 border-start border-info"
+                    onclick="payNow(600, this)" aria-label="3 weeks access at 600 KES">
                     <div class="card-body py-5 text-center">
                         <h4 class="mb-2 fw-bold">3 Weeks @ 600KES</h4>
                         <p class="card-text fs-5 fw-light">Double the time, same fast speeds</p>
@@ -172,7 +140,8 @@ p, h4{
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card shadow package-card package-1month border-0 border-start border-warning" onclick="payNow(800, this)" aria-label="1 month access at 800 KES">
+                <div class="card shadow package-card package-1month border-0 border-start border-warning"
+                    onclick="payNow(800, this)" aria-label="1 month access at 800 KES">
                     <div class="card-body py-5 text-center">
                         <h4 class="mb-2 fw-bold">1 Month @ 800KES</h4>
                         <p class="card-text fs-5 fw-light">Unlimited access for the whole month</p>
@@ -180,8 +149,8 @@ p, h4{
                 </div>
             </div>
         </div>
-        
     </div>
+    <script src="app.js"></script>
 </body>
 
 </html>
