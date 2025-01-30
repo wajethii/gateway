@@ -14,7 +14,23 @@
         body {
             font-family: 'Quicksand', sans-serif;
         }
-      
+        body {
+    background: url('bg.webp') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5); /* Dark overlay */
+    z-index: -1;
+}
+
     </style>
     <script src="https://js.paystack.co/v1/inline.js"></script>
     <script>
@@ -61,8 +77,8 @@
 
 <body>
     <div class="container text-center py-5">
-        <h1 class="py-2 text-warning">Welcome to mmNet</h1>
-        <p class="text-warning">Choose a package to get started:</p>
+        <h1 class="py-2 text-black">Welcome to mmNet</h1>
+        <p class="text-black fs-4">Choose a package to get started:</p>
         <div class="row g-4 justify-content-center">
             <div class="col-md-4">
                 <div class="card shadow border-0 border-start border-danger" onclick="payNow(20, this)" aria-label="6 hours access at 20 KES">
